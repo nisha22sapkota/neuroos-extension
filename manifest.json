@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "NeuroOS — Calm Mode for AI Chats",
+  "version": "0.1.0",
+  "description": "Detects AI-session cognitive friction from interaction patterns (no biometrics, no page-content collection) and offers lightweight, dismissible interface adaptations.",
+  "permissions": ["storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "NeuroOS"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://chatgpt.com/*",
+        "https://chat.openai.com/*",
+        "https://claude.ai/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

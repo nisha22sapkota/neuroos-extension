@@ -1,0 +1,37 @@
+/* Calm mode — toggled via .neuroos-calm on <html> from content.js.
+   Selectors are intentionally generic (nav/aside/role landmarks) since
+   chatgpt.com / claude.ai use hashed class names that change often.
+   This is a best-effort visual decluttering pass, not pixel-perfect. */
+
+html.neuroos-calm nav,
+html.neuroos-calm aside,
+html.neuroos-calm [role="navigation"],
+html.neuroos-calm [role="complementary"] {
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+html.neuroos-calm nav:hover,
+html.neuroos-calm aside:hover,
+html.neuroos-calm [role="navigation"]:hover,
+html.neuroos-calm [role="complementary"]:hover {
+  opacity: 1;
+}
+
+html.neuroos-calm main,
+html.neuroos-calm [role="main"] {
+  letter-spacing: 0.01em;
+}
+
+html.neuroos-calm main *,
+html.neuroos-calm [role="main"] * {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* Loosen vertical rhythm of message turns so the page reads less dense. */
+html.neuroos-calm article,
+html.neuroos-calm [data-message-author-role] {
+  margin-bottom: 6px;
+  line-height: 1.7 !important;
+}
